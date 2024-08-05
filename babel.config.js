@@ -1,8 +1,7 @@
-// eslint-disable-next-line no-undef
-api.cache(false)
 module.exports = {
   presets: ['module:@react-native/babel-preset'],
   plugins: [
+    'react-native-reanimated/plugin',
     [
       'module:react-native-dotenv',
       {
