@@ -1,8 +1,9 @@
 import axiosClient from '../config/ApiConfig';
 import {Config} from '../config/Config';
+import { IMoviesPlaying } from '../constants/MovieInterface';
 
 const movieApi = {
-  getPlayingMovie() {
+  getPlayingMovie(): Promise<IMoviesPlaying> {
     const url = `/movie/now_playing?api_key=${Config.APIKEY}`;
     return axiosClient.get(url);
   },

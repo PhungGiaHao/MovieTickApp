@@ -7,7 +7,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 export default function AppNavigator() {
   return (
     <NavigationContainer>
-      {/* <StatusBar hidden translucent /> */}
+      <StatusBar hidden translucent />
       <MainStackNavigator />
     </NavigationContainer>
   );
