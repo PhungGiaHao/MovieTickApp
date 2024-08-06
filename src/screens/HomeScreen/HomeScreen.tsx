@@ -26,13 +26,14 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import Carousel from 'react-native-reanimated-carousel';
 import SubMovieCard from '../../components/SubMovieCard';
+import { useKeyboardVisible } from '../../hook/useKeyboard';
 
 export default function HomeScreen() {
   const {width, height} = useWindowDimensions();
   const item_size = width * 0.7 + SPACING.space_10;
   const CURRENT_ITEM_TRANSLATE_Y = 48;
   const EMPTY_ITEM_LENGTH = (width - item_size) / 2;
-
+  const isKeyboardVisible = useKeyboardVisible();
   const dispatch = useAppDispatch();
   const {
     results: nowPlayingResults,
@@ -53,7 +54,11 @@ export default function HomeScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
   useEffect(() => {
     dispatch(fetchPlayingMoviesStart());
-  }, [dispatch]);
+
+    if(isKeyboardVisible){
+      navigation.navigate('Search')
+    };
+  }, [dispatch,isKeyboardVisible]);
   // const scrollX = useSharedValue(0);
 
   const renderItem = ({item, index}: {item: any; index: number}) => {
