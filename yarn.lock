@@ -3242,6 +3242,7 @@ __metadata:
     react-native: 0.74.4
     react-native-asset: ^2.1.1
     react-native-dotenv: ^3.4.11
+    react-native-encrypted-storage: ^4.0.3
     react-native-fast-image: ^8.6.3
     react-native-gesture-handler: ^2.18.1
     react-native-linear-gradient: ^2.8.3
@@ -8672,6 +8673,16 @@ __metadata:
   peerDependencies:
     "@babel/runtime": ^7.20.6
   checksum: 3ebac2c2ed79dd7e4920fd3fc2da9187413b7190231618e4858b46c47833677838b96d531afe7bd5c4b0a60454dba40cb8708722210df5d522e30aefbf41da05
+  languageName: node
+  linkType: hard
+
+"react-native-encrypted-storage@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "react-native-encrypted-storage@npm:4.0.3"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 9d2999c58559f1e4f66d1baf2c3edeff96cf42027900850d94c6bbea24ac9715047ce69bf6e8a73b68aff4508cf35dd88ac494ad5905933286ef3b75cd123e30
   languageName: node
   linkType: hard
 

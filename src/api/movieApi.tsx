@@ -19,11 +19,11 @@ const movieApi = {
     const url = `/search/movie?api_key=${Config.APIKEY}&query=${query}`;
     return axiosClient.get(url);
   },
-  getMovieDetail(id: number) {
+  getMovieDetail(id: string) {
     const url = `/movie/${id}?api_key=${Config.APIKEY}`;
     return axiosClient.get(url);
   },
-  getMovieCastDetail(id: number) {
+  getMovieCastDetail(id: string) {
     const url = `/movie/${id}/credits?api_key=${Config.APIKEY}`;
     return axiosClient.get(url);
   },

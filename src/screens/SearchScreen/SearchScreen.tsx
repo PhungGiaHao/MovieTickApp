@@ -9,24 +9,25 @@ import {
 } from 'react-native';
 import InputHeader from '../../components/InputHeader';
 import SubMovieCard from '../../components/SubMovieCard';
-import { SPACING, COLORS } from '../../theme/theme';
-import { baseImagePath } from '../../utils/baseImagePath';
-
+import {SPACING, COLORS} from '../../theme/theme';
+import {baseImagePath} from '../../utils/baseImagePath';
+import movieApi from '../../api/movieApi';
+import {IMoviesPlaying} from '../../constants/MovieInterface';
+import { AxiosResponse } from 'axios';
 
 const {width, height} = Dimensions.get('screen');
 
 const SearchScreen = ({navigation}: any) => {
-  const [searchList, setSearchList] = useState([]);
+  const [searchList, setSearchList] = useState<any>([]);
 
-  // const searchMoviesFunction = async (name: string) => {
-  //   try {
-  //     let response = await fetch(searchMovies(name));
-  //     let json = await response.json();
-  //     setSearchList(json.results);
-  //   } catch (error) {
-  //     console.error('Something went wrong in searchMoviesFunction ', error);
-  //   }
-  // };
+  const searchMoviesFunction = async (name: string) => {
+    try {
+      let response: AxiosResponse<IMoviesPlaying> = await movieApi.getSearchedMovie(name);
+      setSearchList(response.results);
+    } catch (error) {
+      console.error('Something went wrong in searchMoviesFunction ', error);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -41,7 +42,7 @@ const SearchScreen = ({navigation}: any) => {
           showsVerticalScrollIndicator={false}
           ListHeaderComponent={
             <View style={styles.InputHeaderContainer}>
-              <InputHeader />
+              <InputHeader searchFunction={searchMoviesFunction} />
             </View>
           }
           contentContainerStyle={styles.centerContainer}
